@@ -1,0 +1,143 @@
+{
+    "id": "55539939",
+    "premium": false,
+    "billing_type": {
+        "id": "standard",
+        "name": "Стандарт"
+    },
+    "relations": [],
+    "name": "Продавец-консультант в магазин Mustang (ТРЦ Планета)",
+    "insider_interview": null,
+    "response_letter_required": false,
+    "area": {
+        "id": "54",
+        "name": "Красноярск",
+        "url": "https://api.hh.ru/areas/54"
+    },
+    "salary": {
+        "from": 40000,
+        "to": 50000,
+        "currency": "RUR",
+        "gross": false
+    },
+    "type": {
+        "id": "open",
+        "name": "Открытая"
+    },
+    "address": {
+        "city": "Красноярск",
+        "street": "улица 9 Мая",
+        "building": "77",
+        "description": null,
+        "lat": 56.050933,
+        "lng": 92.904378,
+        "raw": "Красноярск, улица 9 Мая, 77",
+        "metro": null,
+        "metro_stations": []
+    },
+    "allow_messages": true,
+    "experience": {
+        "id": "noExperience",
+        "name": "Нет опыта"
+    },
+    "schedule": {
+        "id": "shift",
+        "name": "Сменный график"
+    },
+    "employment": {
+        "id": "full",
+        "name": "Полная занятость"
+    },
+    "department": null,
+    "contacts": null,
+    "description": "<p> </p> <p><strong>Наша компания уже более 10 лет является официальным представителем Levi’s, Mustang, Lacoste и Comma на территории России. За это время мы открыли магазины в крупнейших торговых центрах г. Москвы, г. Новосибирска, г. Челябинска, г. Барнаула, г. Иркутска и г. Красноярска.</strong></p> <p>У нас открыт конкурс на вакансию <strong>менеджера-консультанта.</strong></p> <p><strong>Mustang - это крупнейший бренд и международная компания по производству джинсов и одежды с 1932 года. </strong><strong>Наша компания уже более 10 лет представляет бренд </strong><strong>Mustang</strong><strong> в крупнейших в торговых центрах г. Москвы, г. Новосибирска, г. Иркутска и г. Красноярска.</strong></p> <p>Вашей задачей будет общаться с покупателем и подбирать им необходимую одежду. Обслуживать покупателей на кассе. Принимать участие в приеме товара. Работать с товаром в торговом зале и на складе. Оформлять торговый зал.</p> <p>Опыт работы не обязателен. Мы всему научим!</p> <p> </p> <p><strong>Что делать:</strong></p> <p>Встречать покупателя с улыбкой и готовностью подобрать идеальный образ на любой случай.</p> <p>Решать проблему покупателя путем продажи нашего товара.</p> <p>Делать актуальные, капсульные развески товара.</p> <p>Поддерживать порядок в магазине.</p> <p> </p> <p><strong>Требование к кандидату:</strong></p> <p>Желание находить контакт с людьми.</p> <p>Стремление к достижению результата.</p> <p>Умение быстро обучаться, в том числе самостоятельно.</p> <p>Чувство стиля, оно пригодится при подборе образов.</p> <p> </p> <p><strong>Что мы даем:</strong></p> <p>Высокий уровень обучения продукту и алгоритмам продаж.</p> <p>Карьерный рост от продавца-консультанта до руководителя высшего звена.</p> <p>Знакомство с профессиональными коллегами, с которыми приятно работать в одной команде.</p> <p>Возможность приобретать товар для себя по очень привлекательным ценам с большой корпоративной скидкой.</p> <p>Работу в современном ТРЦ «Планета»</p> <p>Сменный график работы</p> <p>Возможность получать высокую ЗП, за счет индивидуальных продаж</p> <p><strong><em>Дополнительную информацию о нас Вы можете узнать https://mg-hr.ru/</em></strong></p> <p><strong>Вы прочитали до конца и поняли, что хотите работать в нашей компании – откликнитесь на вакансию, мы рассмотрим ваше резюме и обязательно свяжемся с вами в ближайшее время.</strong></p> <p> </p>",
+    "branded_description": null,
+    "vacancy_constructor_template": null,
+    "key_skills": [
+        {
+            "name": "Активные продажи"
+        },
+        {
+            "name": "Клиентоориентированность"
+        },
+        {
+            "name": "Работа в команде"
+        },
+        {
+            "name": "Пользователь ПК"
+        },
+        {
+            "name": "Грамотная речь"
+        }
+    ],
+    "accept_handicapped": false,
+    "accept_kids": false,
+    "archived": false,
+    "response_url": null,
+    "specializations": [
+        {
+            "id": "17.256",
+            "name": "Розничная торговля",
+            "profarea_id": "17",
+            "profarea_name": "Продажи"
+        },
+        {
+            "id": "17.183",
+            "name": "Начальный уровень, Мало опыта",
+            "profarea_id": "17",
+            "profarea_name": "Продажи"
+        },
+        {
+            "id": "17.535",
+            "name": "Торговые сети",
+            "profarea_id": "17",
+            "profarea_name": "Продажи"
+        },
+        {
+            "id": "17.520",
+            "name": "Продавец в магазине",
+            "profarea_id": "17",
+            "profarea_name": "Продажи"
+        },
+        {
+            "id": "15.389",
+            "name": "Продажи",
+            "profarea_id": "15",
+            "profarea_name": "Начало карьеры, студенты"
+        }
+    ],
+    "professional_roles": [
+        {
+            "id": "97",
+            "name": "Продавец-консультант, продавец-кассир"
+        }
+    ],
+    "code": null,
+    "hidden": false,
+    "quick_responses_allowed": false,
+    "driver_license_types": [],
+    "accept_incomplete_resumes": true,
+    "employer": {
+        "id": "898175",
+        "name": "Лемарон",
+        "url": "https://api.hh.ru/employers/898175",
+        "alternate_url": "https://hh.ru/employer/898175",
+        "logo_urls": null,
+        "vacancies_url": "https://api.hh.ru/vacancies?employer_id=898175",
+        "trusted": true
+    },
+    "published_at": "2022-10-08T06:59:25+0300",
+    "created_at": "2022-10-08T06:59:25+0300",
+    "initial_created_at": "2022-05-19T06:57:48+0300",
+    "negotiations_url": null,
+    "suitable_resumes_url": null,
+    "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=55539939",
+    "has_test": false,
+    "test": null,
+    "alternate_url": "https://hh.ru/vacancy/55539939",
+    "working_days": [],
+    "working_time_intervals": [],
+    "working_time_modes": [],
+    "accept_temporary": false,
+    "languages": []
+}
