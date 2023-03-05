@@ -10,10 +10,14 @@ const querryAjax = (method, queryAddres, callback) => {
     xhttp.send();
 }
 
+
+
+
+
 const banner = Vue.component(
     "banner",
     {
-        data: function () {
+        data: () => {
             return {
 
             }
@@ -24,10 +28,14 @@ const banner = Vue.component(
     }
 )
 
+
+
+
+
 const search = Vue.component(
     "search",
     {
-        data: function () {
+        data: () => {
             return {
                 dataFromInput: null,
                 searchList: null,
@@ -62,42 +70,46 @@ const search = Vue.component(
                         this.searchList = response.data.items
                     })
             },
-            searchPrevPage(){
-                this.currentPage -=1
+            searchPrevPage() {
+                this.currentPage -= 1
                 axios
                     .get(`https://api.hh.ru/vacancies?text=${this.dataFromInput}&per_page=30&page=${this.currentPage}`)
                     .then(response => {
                         this.searchList = response.data.items
                     })
             },
-            searchNextPage(){
-                this.currentPage +=1
+            searchNextPage() {
+                this.currentPage += 1
                 axios
                     .get(`https://api.hh.ru/vacancies?text=${this.dataFromInput}&per_page=30&page=${this.currentPage}`)
                     .then(response => {
                         this.searchList = response.data.items
                         this.pages = response.data.pages
                     })
-                    
+
             },
         },
 
         created() {
             axios
-            .get(`https://api.hh.ru/vacancies/`)
-            .then(response => {
-                this.searchList = response.data.items
-            })
-        }, 
+                .get(`https://api.hh.ru/vacancies/`)
+                .then(response => {
+                    this.searchList = response.data.items
+                })
+        },
 
         props: []
     }
 )
 
+
+
+
+
 const jobList = Vue.component(
     "jobList",
     {
-        data: function () {
+        data: () => {
             return {
 
             }
@@ -119,17 +131,21 @@ const jobList = Vue.component(
     }
 )
 
+
+
+
+
 const login = Vue.component(
     "login",
     {
-        data: function () {
+        data: () => {
             return {
                 'login': null,
                 'password': null,
             }
         },
         template: `
-        <section> 
+        <section class='auth__container'> 
             <h2>Авторизация</h2>
             <form>
                 <input v-model="login" placeholder="Введите логин" type="text" name="login"/>
@@ -144,28 +160,32 @@ const login = Vue.component(
     }
 )
 
-const header = Vue.component(
-    "header",
+
+
+
+
+const user__component = Vue.component(
+    "user__component",
     {
-        data: function () {
+        data: () => {
             return {
 
             }
         },
         template: `
-        <div>
-            <header v-if="user.isAuth">
+        <div class='user__container'>
+            <div v-if="user.isAuth">
                 <div class='overlay-avatar'>
                     <img v-bind:src='user.img' v-bind:alt='user.alt' />
                 </div>
                 <h2>
                     {{user.name}} {{user.lastname}} {{user.family}}
                 </h2>
-                <button v-on:click="logout">Выйти<button>
-            </header>
-            <header v-else>
+                <button class='user__button' v-on:click="logout">Выйти<button>
+            </div>
+            <div v-else>
                 Не авторизованы
-            </header>
+            </div>
         </div>
         `,
         methods: {
@@ -175,10 +195,14 @@ const header = Vue.component(
     }
 )
 
+
+
+
+
 const detailVacancies = Vue.component(
     'detail',
     {
-        data: function () {
+        data: () => {
             return {
                 data: null,
                 title: 'Детализация вакансии',
@@ -227,42 +251,44 @@ const detailVacancies = Vue.component(
     }
 )
 
+
+
+
+
 const main = Vue.component(
     "main",
     {
-        data: function () {
+        data: () => {
             return {
 
             }
         },
         template: `
-        <main>
-        <button id='destroy' v-on:click='destroy'>Уничтожить компонент</button>
+        <main class='wrapper'>
             <div class='control-panel'>
+            <div class='buttons__container'>
                 <button 
-                    v-bind:class="currentTab == 1 ? 'active' : 'none' " 
-                    v-on:click="switchTab(1)"
-                >
+                    v-bind:class="currentTab == 1 ? 'active' : '' " 
+                    v-on:click="switchTab(1)">
                     Список вакансий
                 </button>
                 <button 
-                    v-bind:class="currentTab == 2 ? 'active' : 'none' " 
-                    v-on:click="switchTab(2)"
-                >
+                    v-bind:class="currentTab == 2 ? 'active' : '' " 
+                    v-on:click="switchTab(2)">
                     Поиск вакансии по слову
                 </button>
                 <button 
-                    v-bind:class="currentTab == 3 ? 'active' : 'none' "
+                    v-bind:class="currentTab == 3 ? 'active' : '' "
                     v-on:click="switchTab(3)"
-                    v-show="!user.isAuth"
-                >                
+                    v-show="!user.isAuth">                
                     Авторизоваться
                 </button>
-                <button
-                    v-show="user.isAuth"
-                >                
-                    Редактировать профиль
-                </button>
+            </div>
+                <project-user__component 
+                v-bind:title="mainTitle"
+                v-bind:user="user"
+                v-bind:logout="logout">
+            </project-user__component>
             </div>
             <div class='panel'>
                 <div v-if="currentTab == 1" class='panel-tab'>
@@ -290,8 +316,9 @@ const main = Vue.component(
         methods: {
 
         },
-        props: ['currentTab', 'switchTab', 'workList', "auth", "user", 'isAuth', 'idVacancies', 'destroy'],
+        props: ['currentTab', 'switchTab', 'workList', "auth", 'user', 'isAuth', 'idVacancies', 'logout', 'mainTitle'],
         components: {
+            'project-user__component': user__component,
             'project-login': login,
             'project-jobList': jobList,
             'project-search': search,
@@ -300,10 +327,14 @@ const main = Vue.component(
     }
 )
 
+
+
+
+
 new Vue(
     {
         el: "#root",
-        data: function () {
+        data: () => {
             return {
                 mainTitle: "Сервис для поиска работы",
                 user: {
@@ -320,21 +351,13 @@ new Vue(
         },
         template: `
         <div>
-            <project-header 
-                v-bind:title="mainTitle"
-                v-bind:user="user"
-                v-bind:logout="logout"
-            >
-            </project-header>
             <project-main
-                v-bind:destroy='destroy'
                 v-bind:currentTab="currentTab"
                 v-bind:switchTab="switchTab"
                 v-bind:workList="workList"
                 v-bind:auth="auth"
                 v-bind:user="user"
-                v-bind:idVacancies='idVacancies'
-            >
+                v-bind:idVacancies='idVacancies'>
             </project-main>
         </div>
         `,
@@ -411,10 +434,6 @@ new Vue(
                 //Перевели экран к форме авторизации
                 this.switchTab(3);
             },
-            destroy: function () {
-                //console.log('Уничтожить компонент')
-                this.$destroy()
-            }
         },
         mounted: function () {
             //console.log(this.$el.outerHTML)
@@ -423,15 +442,18 @@ new Vue(
             //console.log(this.$el)
         },
         components: {
-            'project-header': header,
+            'project-user__component': user__component,
             'project-main': main,
         }
     }
 )
+
+
+
 /**
  * Справочная информация по API HH
     https://api.hh.ru/vacancies/55539939 - Инфа по вакансии
     https://api.hh.ru/vacancies - Все вакансии
     https://api.hh.ru/vacancies/55539939/similar_vacancies - поиск похожих вакансий
-    https://api.hh.ru/vacancies?text=java&area=1&metro=6.8 - поиск ваканcий по слову java
+    https://api.hh.ru/vacancies?text=java&area=1&metro=6.8 - поиск ваканcий по слову JavaScript
  */
