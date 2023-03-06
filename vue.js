@@ -43,7 +43,7 @@ const search = Vue.component(
             }
         },
         template: `   
-        <section>
+        <div class='search__vacancy_container'>
             <h2>Поиск вакансии</h2>
             <form>
                 <input type='text' placeholder='Вакансия' v-model='dataFromInput'>
@@ -59,13 +59,13 @@ const search = Vue.component(
                 <div class='current_page'>Страница: {{currentPage}}</div>
                 <button @click='searchNextPage'>Вперед</button>
             </div>
-        </section>   
+        </div>   
         `,
         methods: {
             getInputValue(e) {
                 e.preventDefault()
                 axios
-                    .get(`https://api.hh.ru/vacancies?text=${this.dataFromInput}&per_page=30&page=${this.currentPage}`)
+                    .get(`https://api.hh.ru/vacancies?text=${this.dataFromInput}&per_page=100&page=${this.currentPage}`)
                     .then(response => {
                         this.searchList = response.data.items
                     })
@@ -73,7 +73,7 @@ const search = Vue.component(
             searchPrevPage() {
                 this.currentPage -= 1
                 axios
-                    .get(`https://api.hh.ru/vacancies?text=${this.dataFromInput}&per_page=30&page=${this.currentPage}`)
+                    .get(`https://api.hh.ru/vacancies?text=${this.dataFromInput}&per_page=100&page=${this.currentPage}`)
                     .then(response => {
                         this.searchList = response.data.items
                     })
@@ -81,7 +81,7 @@ const search = Vue.component(
             searchNextPage() {
                 this.currentPage += 1
                 axios
-                    .get(`https://api.hh.ru/vacancies?text=${this.dataFromInput}&per_page=30&page=${this.currentPage}`)
+                    .get(`https://api.hh.ru/vacancies?text=${this.dataFromInput}&per_page=100&page=${this.currentPage}`)
                     .then(response => {
                         this.searchList = response.data.items
                         this.pages = response.data.pages
@@ -115,7 +115,7 @@ const jobList = Vue.component(
             }
         },
         template: `   
-        <section>
+        <div class='jobs__container'>
             <h2>Вакансии</h2>
               <ul v-if="isAuth">
                     <li class='panel-tab__work-item'
@@ -124,8 +124,10 @@ const jobList = Vue.component(
                             >{{item.name}}
                     </li>
               </ul>
-              <div v-else>Авторизуйтесь чтобы увидеть вакансии</div>
-        </section>  
+            <p v-else>
+                Авторизуйтесь чтобы увидеть вакансии
+            </p>
+        </div>  
         `,
         props: ["workList", 'isAuth', 'switchTab'],
     }
@@ -264,31 +266,31 @@ const main = Vue.component(
             }
         },
         template: `
-        <main class='wrapper'>
+        <main class='main__layout'>
             <div class='control-panel'>
-            <div class='buttons__container'>
-                <button 
-                    v-bind:class="currentTab == 1 ? 'active' : '' " 
-                    v-on:click="switchTab(1)">
-                    Список вакансий
-                </button>
-                <button 
-                    v-bind:class="currentTab == 2 ? 'active' : '' " 
-                    v-on:click="switchTab(2)">
-                    Поиск вакансии по слову
-                </button>
-                <button 
-                    v-bind:class="currentTab == 3 ? 'active' : '' "
-                    v-on:click="switchTab(3)"
-                    v-show="!user.isAuth">                
-                    Авторизоваться
-                </button>
-            </div>
+                <div class='buttons__container'>
+                    <button 
+                        v-bind:class="currentTab == 1 ? 'active' : '' " 
+                        v-on:click="switchTab(1)">
+                        Список вакансий
+                    </button>
+                    <button 
+                        v-bind:class="currentTab == 2 ? 'active' : '' " 
+                        v-on:click="switchTab(2)">
+                        Поиск вакансии по слову
+                    </button>
+                    <button 
+                        v-bind:class="currentTab == 3 ? 'active' : '' "
+                        v-on:click="switchTab(3)"
+                        v-show="!user.isAuth">                
+                        Авторизоваться
+                    </button>
+                </div>
                 <project-user__component 
-                v-bind:title="mainTitle"
-                v-bind:user="user"
-                v-bind:logout="logout">
-            </project-user__component>
+                    v-bind:title="mainTitle"
+                    v-bind:user="user"
+                    v-bind:logout="logout">
+                </project-user__component>
             </div>
             <div class='panel'>
                 <div v-if="currentTab == 1" class='panel-tab'>
@@ -307,8 +309,8 @@ const main = Vue.component(
                 <div v-else-if="currentTab == 4" class='panel-tab'>
                     <detail-vacancies
                         v-bind:switchTab='switchTab'
-                        v-bind:idVacancies='idVacancies'
-                    ></detail-vacancies>
+                        v-bind:idVacancies='idVacancies'>
+                    </detail-vacancies>
                 </div>
             </div>   
         </main>
@@ -350,7 +352,7 @@ new Vue(
             }
         },
         template: `
-        <div>
+        <div class='wrapper'>
             <project-main
                 v-bind:currentTab="currentTab"
                 v-bind:switchTab="switchTab"

@@ -3,22 +3,54 @@
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'Trebuchet MS';
-	/* border: 3px solid tomato;
-	margin: 15px; */
 }
 .active{
-    color: white;
+    color: tomato;
     background-color: black;
 }
 
-body{
-	margin: 0;
+.wrapper {
 	overflow: hidden;
+}
+
+.main__layout {
+	display: flex;
+	width: 100%;
+}
+
+.control-panel{
+	height: 100vh;
+	width: 300px;
+	background: #1d1919;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.panel{
+	height: 100vh;
+	padding: 20px;
+	width: 100%;
+}
+
+
+.jobs__container {
+	height: 100%;
 	overflow-y: scroll;
 }
 
-.wrapper {
-	display: flex;
+.search__vacancy_container {
+	height: 100vh;
+	overflow-y: scroll;
+}
+
+.search__vacancy_container ul {
+	margin-bottom: 30px;
+}
+
+.button__container {
+	margin-bottom: 50px;
 }
 
 .user__container {
@@ -46,16 +78,6 @@ button{
 	cursor: pointer;
 }
 
-.control-panel{
-	height: 100vh;
-	width: 300px;
-	background: #1d1919;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	align-items: center;
-}
-
 .buttons__container {
 	width: 100%;
 }
@@ -65,15 +87,6 @@ button{
 	width: 100%;
 	min-height: 50px;
 	border: none;
-}
-
-header{
-    bottom: 200px;
-    left: 0;
-    z-index: 1;
-    text-align: center;
-    color: white;
-    width: 300px;
 }
 
 .overlay-avatar{
@@ -89,31 +102,16 @@ header{
 	width: 100px;
 }
 
-header img{
-	width: 100%;
-}
-
-header h2{
-	width: 100%;
-	text-align: center;
-}
-
-.panel{
-    width: 80%;
-    left: 400px;
-}
-
 .panel-tab__work-item{
-	width: 80%;
-	   padding: 10px;
-	   margin: 1px;
-	box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+	/* width: 80%; */
+	padding: 10px;
+	box-shadow: rgb(0, 0, 0, 24%) 0px 3px 8px;
 	margin: 10px 0px;
    }
 
 ul{
-	list-style-type: none;
-	padding: 0;
+	list-style: none;
+	padding: 20px;
 }
 
 .panel-tab__work-item:hover{
@@ -130,7 +128,7 @@ form input {
 
 input{
 	padding: 5px;
-	min-width: 350px;
+	min-width: 200px;
 	min-height: 25px;
 	font-size: 15px;
 	font-weight:bold;
@@ -145,6 +143,8 @@ input[type='submit'] {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	margin: 30px auto;
+	padding: 20px;
 }
 
 .current_page {
