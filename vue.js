@@ -318,7 +318,7 @@ const main = Vue.component(
         methods: {
 
         },
-        props: ['currentTab', 'switchTab', 'workList', "auth", 'user', 'isAuth', 'idVacancies', 'logout', 'mainTitle'],
+        props: ['currentTab', 'switchTab', 'workList', 'auth', 'user', 'isAuth', 'idVacancies', 'logout', 'mainTitle'],
         components: {
             'project-user__component': user__component,
             'project-login': login,
@@ -359,6 +359,7 @@ new Vue(
                 v-bind:workList="workList"
                 v-bind:auth="auth"
                 v-bind:user="user"
+                v-bind:logout='logout'
                 v-bind:idVacancies='idVacancies'>
             </project-main>
         </div>
@@ -425,8 +426,7 @@ new Vue(
                         this.user.notFoundUser = true
                 }
             },
-            logout: function () {
-                console.log("logout работает")
+            logout: function() {
                 //Вернули данные внутри пользователя к начальному состоянию
                 this.user = {
                     isAuth: false,
@@ -436,12 +436,6 @@ new Vue(
                 //Перевели экран к форме авторизации
                 this.switchTab(3);
             },
-        },
-        mounted: function () {
-            //console.log(this.$el.outerHTML)
-        },
-        updated: function () {
-            //console.log(this.$el)
         },
         components: {
             'project-user__component': user__component,
