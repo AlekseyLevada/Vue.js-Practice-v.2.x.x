@@ -34,15 +34,9 @@
 	width: 100%;
 }
 
-
-.jobs__container {
-	height: 100%;
+.panel-tab {
 	overflow-y: scroll;
-}
-
-.search__vacancy_container {
 	height: 100vh;
-	overflow-y: scroll;
 }
 
 .search__vacancy_container ul {
